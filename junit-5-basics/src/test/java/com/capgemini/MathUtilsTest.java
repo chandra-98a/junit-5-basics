@@ -1,14 +1,19 @@
 package com.capgemini;
 
-
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+
 
 class MathUtilsTest {
 
 	@Test
 	void test() {
-		System.out.println("Hi this test works fine!!!");
+		MathUtils mathUtils=new MathUtils();
+		int expected=2;
+		int actual = mathUtils.add(1, 1);
+		assertEquals(expected,actual);	
 
 }
 }
