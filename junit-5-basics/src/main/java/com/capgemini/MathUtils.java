@@ -6,5 +6,7 @@ public class MathUtils {
 		return a+b;
 	}
 	
-	
+	public double computeCircleArea(double radius) {
+		return 3.14*radius*radius;
+	}
 }
