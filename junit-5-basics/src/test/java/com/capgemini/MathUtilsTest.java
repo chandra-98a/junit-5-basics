@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
@@ -45,12 +47,13 @@ class MathUtilsTest {
 	}
 	
 	@Test
+@DisplayName("AOC")
 	void testComputeCircleArea() {
-		
 		assertEquals(314.00,mathUtils.computeCircleArea(10),"should return the circle area");
 	}
 	
 	@Test
+	@Disabled
 	void testSub() {
 		
 		int expected=1;
