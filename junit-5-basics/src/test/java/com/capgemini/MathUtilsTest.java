@@ -13,7 +13,9 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestReporter;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 
@@ -22,6 +24,8 @@ import org.junit.jupiter.api.condition.OS;
 class MathUtilsTest {
 	
 	MathUtils mathUtils;
+	TestInfo testInfo;
+	TestReporter testReporter;
 	
 	@BeforeAll
 	static void beforeAllInit() {
@@ -29,7 +33,9 @@ class MathUtilsTest {
 	}
 	
 	@BeforeEach
-	void init() {
+	void init( TestInfo testInfo,TestReporter testReporter) {
+		this.testInfo=testInfo;
+		this.testReporter=testReporter;
 		 mathUtils=new MathUtils();
 	}
 
@@ -44,7 +50,9 @@ class MathUtilsTest {
 	@DisplayName("multiply method")
 	@Tag("math")
 	void testmul() {
+//	System.out.println("Running "+ testInfo.getDisplayName()+ " with tags "+testInfo.getTags());
 		//assertEquals(4,mathUtils.mul(2, 2),"Should return 4");
+	testReporter.publishEntry("Running "+ testInfo.getDisplayName()+ " with tags "+testInfo.getTags());
 		assertAll(
 				()-> assertEquals(4,mathUtils.mul(2, 2)),
 				()-> assertEquals(8,mathUtils.mul(2, 4)),
