@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.EnabledOnOs;
@@ -51,13 +52,24 @@ class MathUtilsTest {
 	}
 	
 	
-	@Test
-	void testAdd() {
+	
+	@Nested
+	@DisplayName("Addition" )
+	class addTest{
+		@Test
+		void testAddPositive() {
+			
+			int expected=2;
+			int actual = mathUtils.add(1, 1);
+			assertEquals(expected,actual,"The add method should add two positive numbers");	
+	}
 		
-		int expected=2;
-		int actual = mathUtils.add(1, 1);
-		assertEquals(expected,actual,"The add method should add two numbers");	
-}
+		@Test
+		void testAddNegative() {
+			assertEquals(1,mathUtils.sub(-1, -2),"should ass two negative numbers");
+		}
+	}
+	
 	@Test
 	//@EnabledOnOs(OS.LINUX)
 	
