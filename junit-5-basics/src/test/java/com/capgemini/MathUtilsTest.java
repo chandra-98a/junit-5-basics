@@ -1,6 +1,7 @@
 package com.capgemini;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
@@ -39,8 +42,12 @@ class MathUtilsTest {
 		assertEquals(expected,actual,"The add method should add two numbers");	
 }
 	@Test
+	//@EnabledOnOs(OS.LINUX)
+	
 	void testDivide() {
+		boolean isServerUp=false;
 		
+		assumeTrue(isServerUp);
 		assertThrows(ArithmeticException.class,()-> mathUtils.div(1, 0),"divide by zero should throw");
 		
 	
@@ -52,7 +59,7 @@ class MathUtilsTest {
 		assertEquals(314.00,mathUtils.computeCircleArea(10),"should return the circle area");
 	}
 	
-	@Test
+	@Test 
 	@Disabled
 	void testSub() {
 		
