@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.EnabledOnOs;
@@ -40,7 +42,7 @@ class MathUtilsTest {
 	
 	@Test
 	@DisplayName("multiply method")
-	
+	@Tag("math")
 	void testmul() {
 		//assertEquals(4,mathUtils.mul(2, 2),"Should return 4");
 		assertAll(
@@ -55,6 +57,7 @@ class MathUtilsTest {
 	
 	@Nested
 	@DisplayName("Addition" )
+	@Tag("Math")
 	class addTest{
 		@Test
 		void testAddPositive() {
@@ -72,7 +75,7 @@ class MathUtilsTest {
 	
 	@Test
 	//@EnabledOnOs(OS.LINUX)
-	
+@Tag("math")
 	void testDivide() {
 		boolean isServerUp=false;
 		
@@ -83,13 +86,16 @@ class MathUtilsTest {
 	}
 	
 	@Test
+	@RepeatedTest(value = 3)
 @DisplayName("AOC")
+	@Tag("circle")
 	void testComputeCircleArea() {
 		assertEquals(314.00,mathUtils.computeCircleArea(10),"should return the circle area");
 	}
 	
 	@Test 
 	@Disabled
+	@Tag("math")
 	void testSub() {
 		
 		int expected=1;
