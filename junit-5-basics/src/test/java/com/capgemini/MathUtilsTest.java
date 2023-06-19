@@ -33,7 +33,24 @@ class MathUtilsTest {
 	@AfterEach
 	void cleanUp() {
 		System.out.println("cleaning up......");
+		
 	}
+	
+	
+	@Test
+	@DisplayName("multiply method")
+	
+	void testmul() {
+		//assertEquals(4,mathUtils.mul(2, 2),"Should return 4");
+		assertAll(
+				()-> assertEquals(4,mathUtils.mul(2, 2)),
+				()-> assertEquals(8,mathUtils.mul(2, 4)),
+				() -> assertEquals(10,mathUtils.mul(2, 5))
+				);
+		
+	}
+	
+	
 	@Test
 	void testAdd() {
 		
